@@ -200,13 +200,13 @@
 
     .title{
         display: flex;
-        font-size: 3em;
+        font-size: 2em;
         margin-bottom: 3vh;
     }
 
     .description{
         color:#D1B06B;
-        font-size: 1.3em;
+        font-size: 1em;
         margin-bottom: 4vh;
     }
 
@@ -438,7 +438,7 @@
     }
 
     .content{
-        margin-top: 30vh;
+        margin-top: 35vh;
         padding: 2vh 5vw;
     }
 
@@ -456,7 +456,7 @@
     }
 
     .header-btn{
-        height: 5vh;
+        height: 8vh;
         width: 50vw;
         color: #FFFFFF;
         background-color: #FFFFFF1A;
