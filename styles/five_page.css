@@ -5,11 +5,144 @@
     font-style: normal;
 } */
 
+.drag_and_drop_zone{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 3vh 2vw;
+}
+
+.dropzone {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 2px dashed #666;
+    height: 50vh;
+    background: #161D27;
+    border-radius: 10px;
+    position: relative;
+    margin: 3vh;
+}
+
+.dropzone::after {
+    content: "Перетащите работника для детальной информации";
+    position: absolute;
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    color: #999;
+    font-size: 12px;
+}
+
+.draggable {
+    cursor: move;
+    transition: transform 0.2s;
+}
+
+.draggable:hover {
+    transform: translateY(-2px);
+}
+
 .team-section {
     text-align: center;
     margin-top: 50px;  
     margin-bottom: 10px;
     width: 100%;
+}
+
+.dropzone .draggable{
+    width: 80vw;
+    height: 40vh;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.dropzone .draggable .team-member{
+    width: 80vw;
+    height: 60vh;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.dropzone .draggable .team-member img{
+    height: 40vh;
+    width: auto;
+}
+
+.dropzone .draggable .team-member .inf-member{
+    display: flex;
+    justify-content: center;
+    align-items: self-start;
+    flex-direction: column;
+}
+
+.dropzone .draggable .team-member .inf-member .signature{
+    display: flex;
+    color:rgb(63, 62, 62);
+    margin: 1vh 0;
+}
+
+.dropzone .draggable .team-member .inf-member .inf-drag-drop{
+    display: flex;
+    color:#FFFFFF;
+}
+
+.dropzone .draggable .team-member .inf-member h3{
+    color:#FFFFFF;
+    font-size: 2rem;
+    margin: 0;
+}
+
+.dropzone .draggable .team-member .inf-member p{
+    margin: 0;
+}
+
+.dropzone .draggable .team-member .inf-member p span{
+    color:rgb(255, 255, 255);
+}
+
+.dropzone .draggable .team-member .social-icons{
+    margin: 0;
+}
+
+.dropzone .draggable .team-member .social-icons .inf-drag-drop-title{
+    display: flex;
+    font-size: 2rem;
+    color: #ffffff;
+}
+
+.dropzone .draggable .team-member .social-icons .signature{
+    display: flex;
+    color:rgb(63, 62, 62);
+    margin: 1vh 0;
+}
+
+.dropzone .draggable .team-member .social-icons .inf-drag-drop{
+    display: flex;
+    color:#FFFFFF;
+}
+
+.dropzone .draggable .team-member .social-icons a{
+    display: flex;
+    justify-content: start;
+    margin: 0;
+    color:#FFFFFF;
+    margin: 1vh 0;
+}
+
+.inf-drag-drop{
+    display: none;
+}
+
+.signature{
+    display: none;
+}
+
+.inf-drag-drop-title{
+    display: none;
 }
 
 .yellow-text
