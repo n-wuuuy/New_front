@@ -439,6 +439,12 @@
         color: #D1B06B;
         font-size: 4rem;
     }
+
+    .social-networks{
+        width: 12vw;
+        display: flex;
+        justify-content: space-between;
+    }
 }
 
 @media screen and (max-width: 768px) {

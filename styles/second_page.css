@@ -50,10 +50,10 @@
         align-items: center;
     }
 
-    img{
+    /* img{
         height: 60%;
         width: auto;
-    }
+    } */
 
     header {
         position: relative;
@@ -208,7 +208,7 @@
         margin: 1vh;
         background-color: #1F2732;
         width: 25vw;
-        height: 30vh;
+        height: 35vh;
         flex-direction: column;
         padding-bottom: 3vh;
     }
@@ -297,6 +297,12 @@
         color: #FFFFFF;
         font-size: 1.7em;
         cursor: not-allowed;
+    }
+
+    .social-networks{
+        width: 12vw;
+        display: flex;
+        justify-content: space-between;
     }
 }
 

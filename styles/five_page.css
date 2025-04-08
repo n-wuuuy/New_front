@@ -19,6 +19,7 @@
     align-items: center;
     border: 2px dashed #666;
     height: 50vh;
+    width: 80vw;
     background: #161D27;
     border-radius: 10px;
     position: relative;
@@ -195,6 +196,12 @@ h2 {
     font-size: 16px;
 }
 
+.social-networks{
+    width: 12vw;
+    display: flex;
+    justify-content: space-between;
+}
+
 /* Адаптивность для мобильных устройств */
 @media (max-width: 768px) {
     .team {
@@ -358,11 +365,6 @@ h2 {
         flex-direction: row;
         justify-content: space-between;
         align-items: center;
-    }
-
-    img{
-        height: 60%;
-        width: auto;
     }
 
     header {

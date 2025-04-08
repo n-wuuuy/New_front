@@ -1,69 +1,49 @@
 const dropzone = document.querySelector('.dropzone');
-const container = document.querySelector('.items-container');
-const infoPanel = document.getElementById('infoPanel');
-const currentInfo = document.getElementById('current-info');
-let draggedItem = null;
+const container = document.querySelector('.team');
 
 document.querySelectorAll('.draggable').forEach(item => {
-    item.originalParent = container;
+    item.originalParent = container; // Изначально все элементы принадлежат .team
     item.addEventListener('dragstart', handleDragStart);
-    item.addEventListener('dragend', handleDragEnd);
+    item.addEventListener('dragend', handleDragEnd); // Важно добавить dragend
 });
 
 dropzone.addEventListener('dragover', handleDragOver);
-dropzone.addEventListener('dragleave', handleDragLeave);
 dropzone.addEventListener('drop', handleDrop);
 
 function handleDragStart(e) {
-    draggedItem = e.target;
     e.dataTransfer.setData('text/plain', e.target.id);
     e.target.classList.add('dragging');
-    draggedItem.originalParent = e.target.parentElement;
+    e.target.originalParent = e.target.parentElement; // Фиксируем текущий родитель
 }
 
 function handleDragOver(e) {
     e.preventDefault();
     e.target.classList.add('dragover');
-    }
-
-function handleDragLeave(e) {
-    e.target.classList.remove('dragover');
 }
 
 function handleDrop(e) {
     e.preventDefault();
     e.target.classList.remove('dragover');
 
+    // Если в dropzone уже есть элемент, возвращаем его в .team
     if (dropzone.children.length > 0) {
         const existingItem = dropzone.firstElementChild;
-        existingItem.originalParent.appendChild(existingItem);
+        container.appendChild(existingItem); // Принудительно в .team
     }
 
+    // Добавляем новый элемент в dropzone
     const data = e.dataTransfer.getData('text/plain');
     const newItem = document.getElementById(data);
     dropzone.appendChild(newItem);
-
-    updateInfo(newItem);
-    }
+    newItem.originalParent = dropzone; // Обновляем родителя
+}
 
 function handleDragEnd(e) {
     e.target.classList.remove('dragging');
-    draggedItem = null;
+    
+    // Если элемент был взят из dropzone и не попал обратно в неё
+    if (e.target.originalParent === dropzone && e.target.parentElement !== dropzone) {
+        container.appendChild(e.target); // Возвращаем в .team
+        e.target.originalParent = container; // Сбрасываем оригинального родителя
     }
-
-function updateInfo(item) {
-    if (!item) {
-        infoPanel.style.display = 'none';
-        currentInfo.innerHTML = 'Нет выбранного элемента';
-        return;
-    }
-
-    const info = item.dataset.info;
-    const time = new Date().toLocaleTimeString();
-    currentInfo.innerHTML = `
-        <strong>${item.textContent}</strong><br>
-        <em>${info}</em><br>
-        <span class="timestamp">Добавлено: ${time}</span>
-        `;
-    infoPanel.style.display = 'block';
 }
