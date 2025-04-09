@@ -411,7 +411,7 @@
     .img-sec{
         height: 15vh;
         width: 25vw;
-        background-image: url(/assets/images/IMAGE\(8\).png);
+        background-image: url('../assets/images/IMAGE(8).png');
         position: relative;
         background-size: cover;
         background-position: center;
